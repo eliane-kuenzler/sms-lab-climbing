@@ -6,4 +6,4 @@ This repository contains the code for my semester project at the SMS lab regardi
 Check out the Jupyter Notebooks.
 
 ## Contributors
-* Eliane Künzler
+* Eliane Künzler, David Rode
