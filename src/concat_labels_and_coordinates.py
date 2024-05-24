@@ -21,13 +21,13 @@ def print_elapsed_time(start_time, message):
     print(f"{message} - Elapsed time: {elapsed_time:.2f} seconds")
 
 
-# Load the allLabels.csv file into a DataFrame
+# Load the all_labels.csv file into a DataFrame
 start_time = time.time()
-all_labels_df = pd.read_csv('data/all_annotations/allLabels.csv')
-print_elapsed_time(start_time, "Loaded allLabels.csv")
+all_labels_df = pd.read_csv('../data/dataframes/all_labels.csv')
+print_elapsed_time(start_time, "Loaded all_labels.csv")
 
 # Directory containing the coordinate parquet files
-coordinates_dir = Path('output/video_coordinates')
+coordinates_dir = Path('../output/video_coordinates')
 
 # Initialize an empty list to store DataFrames
 dfs = []
@@ -63,7 +63,7 @@ for index, row in all_labels_df.iterrows():
     frame_coordinates_df = coordinates_df[coordinates_df['frame_number'] == frame_number]
 
     if frame_coordinates_df.empty:
-        # prints out if the coordinates are missing for the frame number in the allLabels.csv
+        # prints out if the coordinates are missing for the frame number in the all_labels.csv
         print(f"Warning: Frame {frame_number} not found in {filename}. Skipping.")
         continue
 
@@ -79,7 +79,7 @@ labels_and_coordinates_df = pd.concat(dfs, ignore_index=True)
 print_elapsed_time(start_time, "Concatenated all DataFrames")
 
 # Define the output path
-output_path = Path('output')
+output_path = Path('../data/dataframes')
 
 # Save the final DataFrame to a CSV file
 start_time = time.time()

@@ -10,7 +10,7 @@ Enables to check how accurate the mediapipe pose estimation algorithm is.
 """
 
 
-input_video_path = Path('data/cvat_videos/W4_Cam22_Oriane_Bertone_V6.mp4')
+input_video_path = Path('../data/cvat_videos/W4_Cam22_Oriane_Bertone_V6.mp4')
 input_landmarks_path = Path('output/video_coordinates/video_coordinates_local.parquet')
 output_overlay_path = Path('output/video_coordinates/W4_Cam22_Oriane_Bertone_V6.mp4')
 

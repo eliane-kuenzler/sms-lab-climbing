@@ -100,9 +100,9 @@ def pose_estimation(input_video_path: Path, output_local_path: Path, output_glob
 
 
 if __name__ == "__main__":
-    video_path = Path('data/cvat_videos')
-    output_coordinates_path = Path('output/video_coordinates')
-    model_path = Path('models/pose_landmarker_full.task')
+    video_path = Path('../data/cvat_videos')
+    output_coordinates_path = Path('../output/video_coordinates')
+    model_path = Path('../models/pose_landmarker_full.task')
 
     BaseOptions = mp.tasks.BaseOptions
     PoseLandmarker = mp.tasks.vision.PoseLandmarker

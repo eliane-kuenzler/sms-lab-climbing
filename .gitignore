@@ -164,7 +164,6 @@ cython_debug/
 data/*
 !data/dummy_file.txt
 output/video_coordinates
-output/labels_and_coordinates.csv
 
 # IDEA folder with pycharm config
 .idea

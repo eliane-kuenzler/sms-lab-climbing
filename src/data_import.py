@@ -27,8 +27,9 @@ label_map = {
     26: 'no_movement_of_interest', 27: 'shoulder_press', 28: 'foot_matching', 9: 'flagging'
 }
 
-# File path to folder with all videos and labels
-allLabelsDir = Path("data/all_annotations")
+# File path to folder with all videos and labels and output path
+allLabelsDir = Path("../data/all_annotations")
+outputDir = Path("../data/dataframes")
 
 # Iterate through each zip file in the directory
 for zipFile in allLabelsDir.glob("*.zip"):
@@ -49,7 +50,6 @@ for zipFile in allLabelsDir.glob("*.zip"):
 # Load all JSON files
 # Naming: W4_Cam22_Helene_Janicot_V2
 # Naming: bouldernumber_camera_firstname_lastname_repetition
-allLabelsDir = Path("data/all_annotations")
 allLabelsFiles = [path for path in allLabelsDir.rglob("*.json")]
 allLabelsPD = []
 
@@ -86,7 +86,7 @@ for labelPath in allLabelsFiles:
 
 # Concatenate all label data
 allLabelsPD = pd.concat(allLabelsPD, ignore_index=True)
-allLabelsPD.to_csv(allLabelsDir / "allLabels.csv", index=False)
+allLabelsPD.to_csv(outputDir / "all_labels.csv", index=False)
 
 # Initialize binary DataFrame with zeros for each label type
 binary_df = pd.DataFrame(0, index=allLabelsPD.index, columns=label_map.values())
@@ -104,4 +104,4 @@ for index, row in allLabelsPD.iterrows():
 
 # Print and save the binary DataFrame
 print(binary_df.head())
-binary_df.to_csv(allLabelsDir / "binaryLabels.csv", index=False)
+binary_df.to_csv(outputDir / "binary_labels.csv", index=False)
